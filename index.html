@@ -16,6 +16,10 @@ $(document).ready(function(){
   });
   $("#clearKey").click(function(){
      $("#keyArea").empty();
+     $("div#flash").empty();
+  });
+  $("button#genKey").click(function(){
+     genKey($(this));
   });
 });
 //-->
@@ -31,10 +35,11 @@ follow me:@shibacow,
 <a target="_blank" href="http://nico-ran.jp/tag/">http://nico-ran.jp/tag/</a>,
 <a target="_blank" href="http://nico-ran.jp/tag_ranking/">http://nico-ran.jp/tag_ranking/</a>,
 </p>
-
 タグ検索<input type="text" id="searchWord"></input>
-<button id="getKey" >タグ取得</button>
+<button id="genKey">タグ生成</button>
+<button id="getKey" >タグ表示</button>
 <button id="clearKey">クリア</button>
+<div id="flash"></div>
 <div id="keyArea"></div>
 <div id="showRanking"></div>
 </body>

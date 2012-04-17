@@ -1,3 +1,13 @@
+function genKey(elm)
+{
+    var url='cgi-bin/genTags.py';
+    $.getJSON(url,null,function(data,status){
+	    console.log(data);
+	    var s="gen data:="+data['status'];
+	    var p=$("<p>").append(s);
+	    $("div#flash").append(p);
+	});
+}
 function getKey(elm){
     var url='cgi-bin/getKeys.py';
     $.getJSON(url,null,function(data,status){

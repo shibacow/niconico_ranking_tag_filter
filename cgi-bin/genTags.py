@@ -7,6 +7,7 @@ import re
 import anydbm
 from datetime import datetime
 import time
+import os
 
 xmlsrc='http://www.nicovideo.jp/ranking/fav/daily/all?rss=2.0'
 src='http://ext.nicovideo.jp/api/getthumbinfo/'
@@ -17,7 +18,7 @@ def getTags(sminfos):
         smid=sminfo['smid']
         url=src+smid
         xml=ElementTree(file=urllib2.urlopen(url))
-        print url
+        #print url
         time.sleep(0.1)
         for e in xml.findall('.//tags'):
             for t in e.iter():
@@ -68,8 +69,9 @@ def generateJSON(result):
     s=json.dumps(result)
     print s
 
-sminfos=readRanking()
-tags=getTags(sminfos)
 f=datetime.now().strftime('%Y-%m-%d')
-saveDBM(f,tags)
-#generateJSON(sminfos)
+if not os.path.exists(f+'.db'):
+    sminfos=readRanking()
+    tags=getTags(sminfos)
+    saveDBM(f,tags)
+generateJSON({'status':'ok'})
