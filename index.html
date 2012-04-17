@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ニコニコランキングをタグフィルター</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="load.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function(){
+  readRanking();
+  $("#searchWord").change(function(){
+    searchWord($(this));
+  });
+  $("#getKey").click(function(){
+    getKey($(this));
+  });
+  $("#clearKey").click(function(){
+     $("#keyArea").empty();
+  });
+});
+//-->
+</script>
+
+</head>
+<body>
+<h1>ニコニコランキングをタグでフィルターして表示</h1>
+<p>
+follow me:@shibacow,
+詳しくは、こちら。
+<a target="_blank" href="http://nico-ran.jp/">http://nico-ran.jp/</a>,
+<a target="_blank" href="http://nico-ran.jp/tag/">http://nico-ran.jp/tag/</a>,
+<a target="_blank" href="http://nico-ran.jp/tag_ranking/">http://nico-ran.jp/tag_ranking/</a>,
+</p>
+
+タグ検索<input type="text" id="searchWord"></input>
+<button id="getKey" >タグ取得</button>
+<button id="clearKey">クリア</button>
+<div id="keyArea"></div>
+<div id="showRanking"></div>
+</body>
+</html>
